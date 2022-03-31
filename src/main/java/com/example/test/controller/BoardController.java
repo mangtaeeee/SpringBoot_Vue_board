@@ -30,7 +30,6 @@ public class BoardController {
 		//json으로 받아온 값을 pvo 에 있는 값에 설정
 		pvo.setParam(req.getParameter("param"));
 		pvo.setType(req.getParameter("type"));
-		//값 확인을 위한 출력문
 		System.out.println(pvo);
 		//받아온 값으로 boardList 실행
 		List<BoardVO> boardList = boardservice.boardList(pvo);
