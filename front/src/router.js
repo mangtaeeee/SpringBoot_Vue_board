@@ -15,7 +15,7 @@ const router = new VueRouter({ // eslint-disable-line no-unused-vars
             component: Home
         },
         {
-            path:"/list",
+            path:"/list", 
             component : List 
         },
     ]
