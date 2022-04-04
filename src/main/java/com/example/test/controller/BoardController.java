@@ -17,26 +17,26 @@ import com.example.test.vo.ParamVO;
 
 import lombok.Setter;
 
+@AllArgsConstructor
 @RestController
+@Log4j2
 public class BoardController {
-	
-	@Setter(onMethod_= @Autowired)
-	private BoardService boardservice;
-	
-	
+
+	private final BoardService boardservice;
+
 	@GetMapping("/list") //get에 url에있는 파라미터로 가져와 req에 저장
 	public List<BoardVO> BoardList(HttpServletRequest req,BoardVO bvo) {
 		ParamVO pvo = new ParamVO();
 		//json으로 받아온 값을 pvo 에 있는 값에 설정
 		pvo.setParam(req.getParameter("param"));
 		pvo.setType(req.getParameter("type"));
-		System.out.println(pvo);
+		//값 확인을 위한 출력문
+		log.info(pvo);
 		//받아온 값으로 boardList 실행
 		List<BoardVO> boardList = boardservice.boardList(pvo);
-		return boardList;
-			
+		return boardList;	
 	}
-	//@RequestBody json형태의 http안에 body값의 내용을 javaObject로 변환해줌
+	//@RequestBody 는 
 	@PostMapping("/list")
 	public List<BoardVO> PostBoardList(@RequestBody ParamVO pvo ,BoardVO bvo){
 		pvo.setParam(pvo.getParam());
