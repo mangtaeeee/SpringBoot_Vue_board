@@ -12,9 +12,12 @@ import com.example.test.vo.ParamVO;
 import lombok.Setter;
 
 @Service 
+@AllArgsConstructor
 public class BoardServiceImpl implements BoardService{
-	@Setter (onMethod_ = @Autowired) //setter 메소드를 만들어 그위에 autowired => 필요한 빈을 찾아 주입하는것
-	private BoardDAO boardDao;
+	
+
+	
+	private final BoardDAO boardDao;
 	
 	@Override
 	public List<BoardVO> boardList(ParamVO pvo) {
@@ -24,3 +27,4 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 }
+
