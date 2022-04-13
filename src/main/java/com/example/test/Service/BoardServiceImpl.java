@@ -12,12 +12,11 @@ import com.example.test.vo.ParamVO;
 import lombok.Setter;
 
 @Service 
-@AllArgsConstructor
 public class BoardServiceImpl implements BoardService{
 	
 
-	
-	private final BoardDAO boardDao;
+	@Resource
+	private BoardDAO boardDao;
 	
 	@Override
 	public List<BoardVO> boardList(ParamVO pvo) {
