@@ -15,7 +15,7 @@ import lombok.Setter;
 public class BoardServiceImpl implements BoardService{
 	
 
-	@Resource
+	@Resource 
 	private BoardDAO boardDao;
 	
 	@Override
